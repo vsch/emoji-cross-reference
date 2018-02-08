@@ -1,6 +1,6 @@
 {
     "githubURL": "https://assets-cdn.github.com/images/icons/emoji/",
-    "emojiReference": [
+    "emojiList": [
         { "shortcut": "+1", "category": "people", "emojiCheatSheetFile": "plus1.png", "githubFile": "unicode/1f44d.png?v7", "unicodeChars": "U+1F44D", "unicodeSampleFile": "1f44d.png", "unicodeCldr": "thumbs up" },
         { "shortcut": "-1", "category": "people", "emojiCheatSheetFile": "-1.png", "githubFile": "unicode/1f44e.png?v7", "unicodeChars": "U+1F44E", "unicodeSampleFile": "1f44e.png", "unicodeCldr": "thumbs down" },
         { "shortcut": "100", "category": "symbols", "emojiCheatSheetFile": "100.png", "githubFile": "unicode/1f4af.png?v7", "unicodeChars": "U+1F4AF", "unicodeSampleFile": "1f4af.png", "unicodeCldr": "hundred points" },

@@ -7,8 +7,13 @@ from the corresponding shortcut lists.
 
 Files:
 
-* [EmojiReference](EmojiReference.java) java reference class, bare bones just the facts
-* [EmojiReference](EmojiReference.json) json reference file
+* [EmojiReference.txt](EmojiReference.txt) tab separated data, empty columns have a single
+  space. Content can be pasted into a spreadsheet if desired.
+* [EmojiReference.java](EmojiReference.java) java reference class, which loads the data file
+  `EmojiReference.txt`. Too much data to include in a java class so has to be loaded
+  dynamically. Put the `EmojiReference.txt` file in your app resources and modify
+  `EmojiReference.java` so it can find it.
+* [EmojiReference.json](EmojiReference.json) json reference file with all the data
 
 Fields:
 

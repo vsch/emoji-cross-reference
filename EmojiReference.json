@@ -1185,6 +1185,7 @@
         { "shortcut": "shrimp", "category": "nature", "githubFile": "unicode/1f990.png?v7", "unicodeChars": "U+1F990", "unicodeSampleFile": "1f990.png", "unicodeCldr": "shrimp" },
         { "shortcut": "sierra_leone", "category": "places", "githubFile": "unicode/1f1f8-1f1f1.png?v7", "unicodeChars": "U+1F1F8 U+1F1F1", "unicodeSampleFile": "1f1f8-1f1f1.png", "unicodeCldr": "Sierra Leone" },
         { "shortcut": "signal_strength", "category": "symbols", "emojiCheatSheetFile": "signal_strength.png", "githubFile": "unicode/1f4f6.png?v7", "unicodeChars": "U+1F4F6", "unicodeSampleFile": "1f4f6.png", "unicodeCldr": "antenna bars" },
+        { "shortcut": "simple_smile", "category": "people", "emojiCheatSheetFile": "simple_smile.png" },
         { "shortcut": "singapore", "category": "places", "githubFile": "unicode/1f1f8-1f1ec.png?v7", "unicodeChars": "U+1F1F8 U+1F1EC", "unicodeSampleFile": "1f1f8-1f1ec.png", "unicodeCldr": "Singapore" },
         { "shortcut": "sint_maarten", "category": "places", "githubFile": "unicode/1f1f8-1f1fd.png?v7", "unicodeChars": "U+1F1F8 U+1F1FD", "unicodeSampleFile": "1f1f8-1f1fd.png", "unicodeCldr": "Sint Maarten" },
         { "shortcut": "six", "category": "symbols", "emojiCheatSheetFile": "six.png", "githubFile": "unicode/0036-20e3.png?v7", "unicodeChars": "U+0036 U+FE0F U+20E3", "unicodeSampleFile": "0036-20e3.png", "unicodeCldr": "keycap: 6" },

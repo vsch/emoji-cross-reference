@@ -1,6 +1,6 @@
-# Emoji Cross Reference 
+# Emoji Cross Reference
 
-If you need to cross reference between [Unicode Emoji List, v11.0], [GitHub Emoji API] and
+If you need to cross reference between [Unicode Emoji List, v15.0], [GitHub Emoji API] and
 [Emoji Cheat Sheet] then these files can provide the raw information you need to create the
 cross reference lookups. Including easy determination which Unicode Emoji symbols are missing
 from the corresponding shortcut lists.
@@ -26,13 +26,13 @@ Fields:
   the `githubUrl` to get the full URL of the image
 * `unicodeChars` : list of unicode characters for the emoji
 * `unicodeSampleFile` file name derived from unicode characters from the
-  [Unicode Emoji List, v11.0], same as `githubFile` name derivation. Used for cross referencing
+  [Unicode Emoji List, v15.0], same as `githubFile` name derivation. Used for cross referencing
   only.
 * `unicodeCldr` : unicode CLDR
 
 **NOTE**: `category` is taken from [Emoji Cheat Sheet] category and filled in manually for
 [GitHub Emoji API] which are not in [Emoji Cheat Sheet]. No category is set for
-[Unicode Emoji List, v11.0] if no shortcut exists.
+[Unicode Emoji List, v15.0] if no shortcut exists.
 
 Please report any discrepancies so they can be corrected.
 
@@ -53,5 +53,5 @@ limitations under the License.
 [`emoji-cheat-sheet.com/public/graphics/emojis/`]: https://github.com/WebpageFX/emoji-cheat-sheet.com/tree/master/public/graphics/emojis
 [Emoji Cheat Sheet]: https://github.com/WebpageFX/emoji-cheat-sheet.com
 [GitHub Emoji API]: https://api.github.com/emojis
-[Unicode Emoji List, v11.0]: https://unicode.org/emoji/charts/emoji-list.html
+[Unicode Emoji List, v15.0]: https://unicode.org/emoji/charts/emoji-list.html
 

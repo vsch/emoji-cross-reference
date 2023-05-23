@@ -2,7 +2,7 @@
 
 If you need to cross-reference between [Unicode Emoji List, v15.0] and
 optionally [Unicode Emoji Modifiers List, v15.0], [GitHub Emoji API] and
-[Emoji Cheat Sheet] then these files can provide the raw information you
+[emoji-cheat-sheet.com] then these files can provide the raw information you
 need to create the cross-reference lookup. Including easy determination
 which Unicode Emoji symbols are missing from the corresponding shortcut
 lists.
@@ -32,7 +32,7 @@ the application will:
   browser type to `emoji_images` to a subdirectory per browser column
   header, converted to lowercase.
 * copy `github_emoji` images to `emoji_images/ghub` subdirectory
-* copy `emoji-cheat-sheet.com/public/graphics/emojis` images to
+* copy [`emoji-cheat-sheet.com/public/graphics/emojis/`] images to
   `emoji_images/emojis` subdirectory, renaming the files to the common
   file name used by GitHub or Unicode emoji, when applicable.
 * create a text reference file [EmojiReference.txt] to be loaded by
@@ -54,13 +54,13 @@ Files:
 Fields:
 
 * `shortcut` : shortcut for either or both: [GitHub Emoji API] when
-  `githubFile` is not null and [Emoji Cheat Sheet] when
+  `githubFile` is not null and [emoji-cheat-sheet.com] when
   `emojiCheatSheetFile` is not null.
 * `aliasShortcuts` : alias shortcuts, when applicable or empty.
 * `category` : category from [Unicode Emoji List, v15.0]
 * `subcategory` : subcategory [Unicode Emoji List, v15.0]
 * `emojiCheatSheetFile` refers to the file name used by the
-  [Emoji Cheat Sheet] for image files in the
+  [emoji-cheat-sheet.com] for image files in the
   [`emoji-cheat-sheet.com/public/graphics/emojis/`] directory. The file
   name in the `emoji_images/emojis` directory will be the one given in
   the `unicodeSampleFile` field.
@@ -83,6 +83,14 @@ Fields:
 [Unicode Emoji List, v15.0] table header rows. Category is mapped in the
 [EmojiImageExtractor.java] from the text appearing in the
 [Unicode Emoji List, v15.0], subcategory is taken as is.
+
+[emoji-cheat-sheet.com] repository needs to be cloned to
+`emoji-cheat-sheet.com` subdirectory in this project. Use the following
+command in the root directory for the project to clone it:
+
+```shell
+git clone https://github.com/WebpageFX/emoji-cheat-sheet.com
+```
 
 Please report any discrepancies so they can be corrected.
 
@@ -107,7 +115,7 @@ limitations under the License.
 [EmojiReference.json]: src/main/resources/EmojiReference.json
 [EmojiReference.java]: src/main/java/com/vladsch/emoji/EmojiReference.java
 [EmojiReference.txt]: src/main/resources/EmojiReference.txt
-[Emoji Cheat Sheet]: https://github.com/WebpageFX/emoji-cheat-sheet.com
+[emoji-cheat-sheet.com]: https://github.com/WebpageFX/emoji-cheat-sheet.com
 [GitHub Emoji API]: https://api.github.com/emojis
 [Unicode Emoji List, v15.0]: https://unicode.org/emoji/charts/emoji-list.html
 [Unicode Emoji Modifiers List, v15.0]: https://unicode.org/emoji/charts/full-emoji-modifiers.html

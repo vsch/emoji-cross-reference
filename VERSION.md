@@ -19,9 +19,9 @@
 
 * Add: emoji image extractor console app
 * Add: download of full emoji list from
-  <https://unicode.org/emoji/charts/full-emoji-list.html>
+  <https://unicode.org/emoji/charts/full-emoji-list.html><!-- @IGNORE PREVIOUS: link -->
 * Add: download of full emoji modifiers list from
-  <https://unicode.org/emoji/charts/full-emoji-modifiers.html>
+  <https://unicode.org/emoji/charts/full-emoji-modifiers.html><!-- @IGNORE PREVIOUS: link -->
 * Add: download of GitHub emoji API from <https://api.github.com/emojis>
 * Add: downloading of GitHub emoji images
 * Add: generating reference files from emoji-cheat-sheet, GitHub API and

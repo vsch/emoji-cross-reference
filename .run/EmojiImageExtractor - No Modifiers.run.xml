@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="EmojiImageExtractor - No Modifiers" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.vladsch.emoji.EmojiImageExtractor" />
+    <module name="emoji-cross-reference" />
+    <option name="PROGRAM_PARAMETERS" value="--no-modifiers" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.vladsch.emoji.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

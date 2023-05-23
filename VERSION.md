@@ -2,9 +2,18 @@
 
 [TOC]: # ""
 
+- [1.1.1](#111)
 - [1.1.0](#110)
 - [1.0.0](#100)
 
+
+## 1.1.1
+
+* Change: emoji cheat sheet and github custom emoji category to
+  `emoji-cheat-sheet` and `github`, with custom as subcategory.
+* Fix: `githubUrl` in `EmojiReference` to
+  `https://github.githubassets.com/images/icons/emoji`
+* Fix: `unicodeSampleFile` was not set in reference files.
 
 ## 1.1.0
 

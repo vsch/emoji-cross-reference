@@ -10,7 +10,7 @@ import java.util.List;
 
 public class EmojiReference {
     public static final String EMOJI_REFERENCE_TXT = "/EmojiReference.txt"; // resource path to text data file
-    public static final String githubUrl = "https://assets-cdn.github.com/images/icons/emoji/";
+    public static final String githubUrl = "https://github.githubassets.com/images/icons/emoji";
     private static final String[] EMPTY_ARRAY = new String[0];
 
     /**

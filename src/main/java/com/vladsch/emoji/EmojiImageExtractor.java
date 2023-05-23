@@ -287,6 +287,8 @@ public class EmojiImageExtractor {
                                 }
                             } else {
                                 // map it to the file name as is
+                                shortcutToFileNameMap.put(emojiShortcut, emojiCheatsheetFileName);
+
                                 System.out.printf("EmojiCheatsheet file '%s', shortcut '%s' not matched.\n", emojiCheatsheetFileName, emojiShortcut);
                                 emojiCheatsheetFileMap.put(emojiCheatsheetFileName, emojiCheatsheetFileName);
                                 emojiCheatsheetFileSet.add(emojiCheatsheetFileName);
@@ -335,11 +337,12 @@ public class EmojiImageExtractor {
 
                 Emoji emoji = new Emoji();
                 emoji.emojiNumber = maxEmojiNumber++;
-                emoji.category = "custom";
-                emoji.subcategory = "github";
+                emoji.category = "github";
+                emoji.subcategory = "custom";
                 emoji.unicodeChars = unicodeChars;
                 emoji.shortcuts = shortcuts;
                 emoji.githubFile = githubUrl;
+                emoji.unicodeSampleFile = fileName;
 
                 emojiList.add(emoji);
 
@@ -364,9 +367,10 @@ public class EmojiImageExtractor {
 
                 Emoji emoji = new Emoji();
                 emoji.emojiNumber = maxEmojiNumber++;
-                emoji.category = "custom";
-                emoji.subcategory = "emoji-cheatsheet";
+                emoji.category = "emoji-cheat-sheet";
+                emoji.subcategory = "custom";
                 emoji.shortcuts = Collections.singletonList(emojiShortcut);
+                emoji.unicodeSampleFile = fileName;
 
                 emojiList.add(emoji);
 

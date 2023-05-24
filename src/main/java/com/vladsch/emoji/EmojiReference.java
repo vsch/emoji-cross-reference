@@ -19,7 +19,8 @@ public class EmojiReference {
     public enum EmojiBrowserType {
         APPL("appl"),
         DCM("dcm"),
-        EMOJI_CHEAT_SHEET("emojis"),
+        EMOJI_CHEAT_SHEET("cheat"),
+        COMBINED_EMOJI("emojis"),
         FB("fb"),
         GITHUB("github"),
         GMAIL("gmail"),

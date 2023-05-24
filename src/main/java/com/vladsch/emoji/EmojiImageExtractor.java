@@ -1,6 +1,7 @@
 package com.vladsch.emoji;
 
 import com.vladsch.boxed.json.*;
+import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,7 +22,7 @@ public class EmojiImageExtractor {
 
     public static final String EMOJI_CHEAT_SHEET = "EmojiCheatsheet";
     public static final String EMOJI_CHEAT_SHEET_SUBDIRECTORY = "cheat";
-    public static final String EMOJI_COMBINED_SUBDIRECTORY = "emojis";
+    public static final String EMOJI_COMBINED_SUBDIRECTORY = "emoji";
     public static final String GITHUB_SUBDIRECTORY = "github";
     public static final String GITHUB_IMAGES_DIRECTORY = "github_emoji";
     public static final String urlFullEmojiList = "https://unicode.org/emoji/charts/full-emoji-list.html";
@@ -38,14 +39,39 @@ public class EmojiImageExtractor {
     public static final String emojiCheatsheetDirectoryPath = "emoji-cheat-sheet.com/public/graphics/emojis";
     public static final String GITHUB_EMOJI_URL_PATH = "https://github.githubassets.com/images/icons/emoji/";
 
-    public static final HashMap<String, String> emojiCheatsheetFileAliasMap = new HashMap<>();
     public static final int DOWNLOAD_BUFFER = 65536;
     public static final int DOWNLOAD_UPDATE = 10;
     public static final String GRAPHICS_EMOJIS_PREFIX = "graphics/emojis/";
 
+    // Used to remove duplicate file names which are mapped by alias shortcuts
+    public static final HashMap<String, String> emojiCheatsheetFileAliasMap = new HashMap<>();
     static {
-        emojiCheatsheetFileAliasMap.put("+1", "plus1");
-        emojiCheatsheetFileAliasMap.put("-1", "minus1");
+        emojiCheatsheetFileAliasMap.put("+1.png", "thumbsup.png");
+        emojiCheatsheetFileAliasMap.put("-1.png", "thumbsdown.png");
+        emojiCheatsheetFileAliasMap.put("plus1.png", "thumbsup.png");
+        emojiCheatsheetFileAliasMap.put("minus1.png", "thumbsdown.png");
+        emojiCheatsheetFileAliasMap.put("red_car.png", "car.png");
+        emojiCheatsheetFileAliasMap.put("mans_shoe.png", "shoe.png");
+        emojiCheatsheetFileAliasMap.put("person_with_blond_hair.png", "man.png");
+        emojiCheatsheetFileAliasMap.put("memo.png", "pencil.png");
+        emojiCheatsheetFileAliasMap.put("person_with_pouting_face.png", "girl.png");
+        emojiCheatsheetFileAliasMap.put("hankey.png", "shit.png");
+        emojiCheatsheetFileAliasMap.put("feet.png", "paw_prints.png");
+        emojiCheatsheetFileAliasMap.put("heavy_exclamation_mark.png", "exclamation.png");
+        emojiCheatsheetFileAliasMap.put("person_frowning.png", "girl.png");
+        emojiCheatsheetFileAliasMap.put("sailboat.png", "boat.png");
+        emojiCheatsheetFileAliasMap.put("poop.png", "shit.png");
+        emojiCheatsheetFileAliasMap.put("telephone.png", "phone.png");
+        emojiCheatsheetFileAliasMap.put("runner.png", "running.png");
+        emojiCheatsheetFileAliasMap.put("satisfied.png", "laughing.png");
+        emojiCheatsheetFileAliasMap.put("all_the_things.png", "joy.png");
+        emojiCheatsheetFileAliasMap.put("e-mail.png", "email.png");
+        emojiCheatsheetFileAliasMap.put("facepunch.png", "punch.png");
+        emojiCheatsheetFileAliasMap.put("raised_hand.png", "hand.png");
+        emojiCheatsheetFileAliasMap.put("collision.png", "boom.png");
+        emojiCheatsheetFileAliasMap.put("tshirt.png", "shirt.png");
+        emojiCheatsheetFileAliasMap.put("gb.png", "uk.png");
+        emojiCheatsheetFileAliasMap.put("simple_smile.png", "smile.png");
     }
 
     /**
@@ -122,15 +148,15 @@ public class EmojiImageExtractor {
 
     public static ArrayList<Emoji> emojiList = new ArrayList<>();
 
-    public static HashMap<String, ArrayList<String>> fileNameToShortcutMap = new HashMap<>();
+    public static HashMap<String, ArrayList<String>> fileNameToShortcutsMap = new HashMap<>();
     public static HashMap<String, String> fileNameToGitHubUrlMap = new HashMap<>();
     public static HashSet<String> githubFileSet = new HashSet<>();
     public static HashMap<String, String> shortcutToCommonFileNameMap = new HashMap<>();
     public static HashMap<String, String> shortcutToCategoryMap = new HashMap<>();
+    public static HashSet<String> shortcutForcedMap = new HashSet<>();
     public static HashMap<String, String[]> emojiCheatSheetFileToShortcutsMap = new HashMap<>();
     public static HashMap<String, String> emojiCheatsheetFileMap = new HashMap<>();
     public static HashSet<String> emojiCheatsheetFileSet = new HashSet<>();
-
 
     public static void main(String[] args) {
         boolean downloadFullEmoji = false;
@@ -138,6 +164,7 @@ public class EmojiImageExtractor {
         boolean downloadGitHubApi = false;
         boolean downloadGitHubImages = false;
         boolean noModifiers = false;
+        boolean showForcedOverrides = false;
 
         for (String arg : args) {
             switch (arg) {
@@ -160,6 +187,10 @@ public class EmojiImageExtractor {
 
                 case "--no-modifiers":
                     noModifiers = true;
+                    break;
+
+                case "--show-overrides":
+                    showForcedOverrides = true;
                     break;
 
                 default:
@@ -205,16 +236,23 @@ public class EmojiImageExtractor {
                 downloadPage(urlGithubEmojiApi, githubEmojiApiFilePath);
             }
 
+            // read the emoji cheat sheet files and map the names as shortcut to common file names for compatibility
+            processEmojiCheatSheetShortcuts(EMOJI_CHEAT_SHEET_HTML_PATH);
+
             File githubEmojiApiFile = new File(githubEmojiApiFilePath);
             InputStream githubJson = Files.newInputStream(githubEmojiApiFile.toPath());
             BoxedJsObject githubApi = BoxedJson.objectFrom(githubJson);
+            HashMap<String, Integer> githubEmojiCategoryLineMap = new HashMap<>();
 
             // read the GitHub shortcut to category map
             File githubEmojiCategoryMapFile = new File(githubEmojiCategoryMapPath);
+            StringBuilder overrides = new StringBuilder();
+            StringBuilder mismatches = new StringBuilder();
+
             try (BufferedReader reader = new BufferedReader(new FileReader(githubEmojiCategoryMapPath))) {
                 String line;
                 int lineNumber = 0;
-                Pattern pattern = Pattern.compile(":(.+):\\s+(.+)");
+                Pattern pattern = Pattern.compile(":(.+):\\s+([^ !]+)\\s*(!?)");
 
                 while ((line = reader.readLine()) != null) {
                     lineNumber++;
@@ -223,16 +261,45 @@ public class EmojiImageExtractor {
                     if (matcher.find()) {
                         String shortcut = matcher.group(1);
                         String category = matcher.group(2);
+                        String force = matcher.group(3);
+                        boolean forced = !force.isEmpty();
 
                         if (githubApi.containsKey(shortcut)) {
                             if (!shortcutToCategoryMap.containsKey(shortcut)) {
                                 shortcutToCategoryMap.put(shortcut, category);
+                                if (forced) shortcutForcedMap.add(shortcut);
                             } else {
-                                System.out.printf("GitHub shortcut '%s' is duplicated in %s:%d\n", shortcut, githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber);
+                                if (githubEmojiCategoryLineMap.containsKey(shortcut)) {
+                                    System.out.printf("GitHub shortcut '%s' is duplicated in %s:%d\n", shortcut, githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber);
+                                } else {
+                                    // must be from emojiCheatSheet
+                                    String cheatsheetCategory = shortcutToCategoryMap.get(shortcut);
+
+                                    if (forced) {
+                                        // override
+                                        shortcutToCategoryMap.put(shortcut, category);
+                                        shortcutForcedMap.add(shortcut);
+                                        if (showForcedOverrides) {
+                                            overrides.append(String.format("'%s' category '%s' overrides '%s', in %s:%d\n"
+                                                    , shortcut, category, cheatsheetCategory
+                                                    , githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber
+                                            ));
+                                        }
+                                    } else {
+                                        if (!category.equals(cheatsheetCategory)) {
+                                            mismatches.append(String.format("'%s' category '%s' != '%s', in %s:%d\n"
+                                                    , shortcut, category, cheatsheetCategory
+                                                    , githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber
+                                            ));
+                                        }
+                                    }
+                                }
                             }
                         } else {
                             System.out.printf("GitHub shortcut '%s' at %s:%d is not found in GitHub API\n", shortcut, githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber);
                         }
+
+                        githubEmojiCategoryLineMap.put(shortcut, lineNumber);
                     } else {
                         System.out.printf("Malformed line '%s' at %s:%d\n", line, githubEmojiCategoryMapFile.getAbsolutePath(), lineNumber);
                     }
@@ -241,11 +308,16 @@ public class EmojiImageExtractor {
                 e.printStackTrace();
             }
 
-            // check for missing categories
-            for (String shortcut : githubApi.keySet()) {
-                if (!shortcutToCategoryMap.containsKey(shortcut)) {
-                    System.out.printf("GitHub shortcut '%s' is missing category\n", shortcut);
-                }
+            String allMismatches = mismatches.toString();
+            if (!allMismatches.isEmpty()) {
+                System.out.print("Mismatched GitHub and emoji-cheatsheet category mappings:\n");
+                System.out.print(allMismatches);
+            }
+
+            String allOverrides = overrides.toString();
+            if (!allOverrides.isEmpty()) {
+                System.out.print("Overridden emoji-cheatsheet category mappings:\n");
+                System.out.print(allOverrides);
             }
 
             // parse and process the githubEmojiApi to extract file name (unicode format when available) and shortcut
@@ -281,7 +353,7 @@ public class EmojiImageExtractor {
 
                 if (startPos != -1) {
                     String fileName = gitHubUrl.substring(startPos + 1, endPos);
-                    ArrayList<String> shortcuts = fileNameToShortcutMap.computeIfAbsent(fileName, keyString -> new ArrayList<>());
+                    ArrayList<String> shortcuts = fileNameToShortcutsMap.computeIfAbsent(fileName, keyString -> new ArrayList<>());
                     if (!shortcuts.contains(shortcut)) shortcuts.add(shortcut);
                     String githubUrlPath = gitHubUrl.substring(GITHUB_EMOJI_URL_PATH.length());
                     fileNameToGitHubUrlMap.put(fileName, githubUrlPath);
@@ -312,14 +384,15 @@ public class EmojiImageExtractor {
                 System.out.print(" done.\n");
             }
 
-            // read the emoji cheat sheet files and map the names as shortcut to common file names for compatibility
-            processEmojiCheatSheetShortcuts(EMOJI_CHEAT_SHEET_HTML_PATH);
-
             // process emoji cheat sheet image files
             Path cheatsheetEmojiPath = Paths.get(emojiCheatsheetDirectoryPath);
             for (Map.Entry<String, String[]> emojiCheatsheetEntry : emojiCheatSheetFileToShortcutsMap.entrySet()) {
                 String emojiCheatsheetFileName = emojiCheatsheetEntry.getKey();
                 String[] emojiShortcuts = emojiCheatsheetEntry.getValue();
+
+                if (emojiCheatsheetFileAliasMap.containsKey(emojiCheatsheetFileName)) {
+                    continue;
+                }
 
                 boolean hadCommonShortcut = false;
 
@@ -362,6 +435,66 @@ public class EmojiImageExtractor {
                 maxEmojiNumber = processUnicodeEmojiTable(maxEmojiNumber, FULL_EMOJI_MODIFIER_HTML_PATH);
             }
 
+            // check for missing categories
+            for (String shortcut : githubApi.keySet()) {
+                if (!shortcutToCategoryMap.containsKey(shortcut)) {
+                    System.out.printf("GitHub shortcut '%s' is missing category,  defined in %s:%d\n", shortcut
+                            , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(shortcut)
+                    );
+                } else {
+                    // check for shortcut aliases mapping to different categories
+                    String category = shortcutToCategoryMap.get(shortcut);
+                    String fileName = shortcutToCommonFileNameMap.get(shortcut);
+                    ArrayList<String> shortcuts = fileNameToShortcutsMap.get(fileName);
+
+                    if (shortcuts != null) {
+                        for (String aliasShortcut : shortcuts) {
+                            boolean forcedShortcut = shortcutForcedMap.contains(shortcut);
+                            boolean forcedAliasShortcut = shortcutForcedMap.contains(aliasShortcut);
+                            String aliasCategory = shortcutToCategoryMap.get(aliasShortcut);
+
+                            String forcedShortcutText = forcedShortcut ? "!" : "";
+                            String forcedAliasShortcutText = forcedAliasShortcut ? "!" : "";
+
+                            if (shortcut.equals(aliasShortcut) || githubEmojiCategoryLineMap.get(shortcut) > githubEmojiCategoryLineMap.get(aliasShortcut)) {
+                                if (!forcedShortcutText.equals(forcedAliasShortcutText)) {
+                                    System.out.printf("GitHub shortcut '%s' category '%s'%s and alias '%s' category '%s'%s have mismatched force override,\n" +
+                                                    "   shortcut defined in %s:%d\n" +
+                                                    "   alias defined in %s:%d\n"
+                                            , shortcut, category, forcedShortcutText
+                                            , aliasShortcut, aliasCategory, forcedAliasShortcutText
+                                            , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(shortcut)
+                                            , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(aliasShortcut)
+                                    );
+                                }
+                                continue;
+                            }
+
+                            if (aliasCategory == null) {
+                                System.out.printf("GitHub shortcut '%s' alias '%s' is missing category,  defined in %s:%d\n"
+                                        , shortcut
+                                        , aliasShortcut
+                                        , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(aliasShortcut)
+                                );
+                            } else if (!category.equals(aliasCategory)) {
+                                System.out.printf("GitHub shortcut '%s' has '%s'%s category, while alias '%s' has '%s'%s category,\n" +
+                                                "   shortcut defined in %s:%d\n" +
+                                                "   alias defined in %s:%d\n"
+                                        , shortcut, category, forcedShortcutText
+                                        , aliasShortcut, aliasCategory, forcedAliasShortcutText
+                                        , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(shortcut)
+                                        , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(aliasShortcut)
+                                );
+                            }
+                        }
+                    } else {
+                        System.out.printf("GitHub shortcut '%s' has no aliasShortcuts, defined in %s:%d\n", shortcut
+                                , githubEmojiCategoryMapFile.getAbsolutePath(), githubEmojiCategoryLineMap.get(shortcut)
+                        );
+                    }
+                }
+            }
+
             // add custom GitHub shortcuts/URLs
             for (String fileName : githubFileSet) {
                 // Add the image file name to the JSON object
@@ -370,8 +503,8 @@ public class EmojiImageExtractor {
                 String githubUrl = null;
                 String unicodeChars = null;
 
-                if (fileNameToShortcutMap.containsKey(fileName)) {
-                    shortcuts = fileNameToShortcutMap.get(fileName);
+                if (fileNameToShortcutsMap.containsKey(fileName)) {
+                    shortcuts = fileNameToShortcutsMap.get(fileName);
                 }
 
                 if (fileNameToGitHubUrlMap.containsKey(fileName)) {
@@ -427,9 +560,9 @@ public class EmojiImageExtractor {
             // add custom emoji-cheatsheet shortcuts/files
             for (String fileName : emojiCheatsheetFileSet) {
                 // Add the image file name to the JSON object
-                String emojiShortcut = fileName.endsWith(".png") ? fileName.substring(0, fileName.length() - ".png".length()) : fileName;
+                String emojiShortcut = removeSuffix_PNG(fileName);
 
-                if (fileNameToShortcutMap.containsKey(fileName)) {
+                if (fileNameToShortcutsMap.containsKey(fileName)) {
                     System.out.printf("Unexpected state: emoji-cheatsheet file '%s' matches common file name '%s', but was not processed\n", fileName, fileName);
                 }
 
@@ -630,6 +763,11 @@ public class EmojiImageExtractor {
         }
     }
 
+    @NotNull
+    private static String removeSuffix_PNG(String fileName) {
+        return fileName.endsWith(".png") ? fileName.substring(0, fileName.length() - ".png".length()) : fileName;
+    }
+
     private static void processEmojiCheatSheetShortcuts(String htmlFilePath) throws IOException {
         File htmlFile = new File(htmlFilePath);
         Document doc = Jsoup.parse(htmlFile, "UTF-8");
@@ -656,9 +794,14 @@ public class EmojiImageExtractor {
 
             String fileName = imgSrc.substring(GRAPHICS_EMOJIS_PREFIX.length());
             Element nameSpan = listItem.getElementsByTag("span").first();
-            String shortcut = nameSpan != null ? nameSpan.text() : fileName.endsWith(".png") ? fileName.substring(0, fileName.length() - ".png".length()) : fileName;
+            String shortcut = nameSpan != null ? nameSpan.text() : removeSuffix_PNG(fileName);
             String aliasShortcuts = nameSpan != null ? shortcut + ", " + nameSpan.attr("data-alternative-name") : shortcut;
             String[] shortcuts = aliasShortcuts.split(", ");
+
+            if (emojiCheatsheetFileAliasMap.containsKey(fileName)) {
+                // skip aliased files
+                continue;
+            }
 
             emojiCheatSheetFileToShortcutsMap.put(fileName, shortcuts);
             shortcutToCategoryMap.put(shortcut, category);
@@ -824,8 +967,8 @@ public class EmojiImageExtractor {
                             if (!codeString.isEmpty()) emoji.unicodeChars = codeString;
                             emoji.unicodeSampleFile = fileName;
 
-                            if (fileNameToShortcutMap.containsKey(fileName)) {
-                                emoji.shortcuts = fileNameToShortcutMap.get(fileName);
+                            if (fileNameToShortcutsMap.containsKey(fileName)) {
+                                emoji.shortcuts = fileNameToShortcutsMap.get(fileName);
                             }
 
                             if (fileNameToGitHubUrlMap.containsKey(fileName)) {
@@ -872,6 +1015,11 @@ public class EmojiImageExtractor {
     }
 
     private static void processEmojiCheatsheetFile(String emojiCheatsheetFileName, String fileName, Emoji emoji) throws IOException {
+        if (emojiCheatsheetFileAliasMap.containsKey(emojiCheatsheetFileName)) {
+            // skip aliased files
+            return;
+        }
+
         File sourceFile = new File(emojiCheatsheetDirectoryPath, emojiCheatsheetFileName);
         File destinationDirectory = new File(outputDirectory, EMOJI_CHEAT_SHEET_SUBDIRECTORY);
 
@@ -924,7 +1072,6 @@ public class EmojiImageExtractor {
                     }
                 }
             }
-
         }
     }
 

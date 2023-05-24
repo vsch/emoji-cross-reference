@@ -1,11 +1,19 @@
 # Version History
 
-[TOC]: # ""
+[TOC]: #
 
+- [1.2.0](#120)
 - [1.1.1](#111)
 - [1.1.0](#110)
 - [1.0.0](#100)
 
+
+## 1.2.0
+
+* Change: create [GitHubCategoryMap.md](GitHubCategoryMap.md) file to
+  map GitHub shortcuts to categories.
+* Change: cheat sheet emoji directory to `cheat`
+* Add: cheat sheet and GitHub combined emoji directory to `emojis`
 
 ## 1.1.1
 

@@ -2,12 +2,18 @@
 
 [TOC]: #
 
+- [1.2.4](#124)
 - [1.2.2](#122)
 - [1.2.0](#120)
 - [1.1.1](#111)
 - [1.1.0](#110)
 - [1.0.0](#100)
 
+
+## 1.2.4
+
+* Remove: using emoji cheat sheet alternative name as shortcuts. These
+  are hodge-podge mappings and result in duplicate mappings.
 
 ## 1.2.2
 

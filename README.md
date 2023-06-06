@@ -2,10 +2,10 @@
 
 If you need to cross-reference between [Unicode Emoji List, v15.0] and
 optionally [Unicode Emoji Modifiers List, v15.0], [GitHub Emoji API] and
-[emoji-cheat-sheet.com] then these files can provide the raw information you
-need to create the cross-reference lookup. Including easy determination
-which Unicode Emoji symbols are missing from the corresponding shortcut
-lists.
+[emoji-cheat-sheet.com] then these files can provide the raw information
+you need to create the cross-reference lookup. Including easy
+determination which Unicode Emoji symbols are missing from the
+corresponding shortcut lists.
 
 The [EmojiImageExtractor.java] is a console application with two
 options:
@@ -118,5 +118,8 @@ limitations under the License.
 [emoji-cheat-sheet.com]: https://github.com/WebpageFX/emoji-cheat-sheet.com
 [GitHub Emoji API]: https://api.github.com/emojis
 [Unicode Emoji List, v15.0]: https://unicode.org/emoji/charts/emoji-list.html
+<!-- @IGNORE PREVIOUS: link -->
+
 [Unicode Emoji Modifiers List, v15.0]: https://unicode.org/emoji/charts/full-emoji-modifiers.html
+<!-- @IGNORE PREVIOUS: link -->
 

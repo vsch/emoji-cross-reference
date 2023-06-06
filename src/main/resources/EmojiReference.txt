@@ -26,6 +26,7 @@ albania	flags	 	unicode/1f1e6-1f1f1.png?v8	U+1F1E6 U+1F1F1	1f1e6-1f1f1.png	 	cus
 alembic	symbols	 	unicode/2697.png?v8	U+2697	2697.png	 	custom	 	 
 algeria	flags	 	unicode/1f1e9-1f1ff.png?v8	U+1F1E9 U+1F1FF	1f1e9-1f1ff.png	 	custom	 	 
 alien	people	alien.png	unicode/1f47d.png?v8	U+1F47D	1f47d.png	 	custom	 	 
+all_the_things	people	all_the_things.png	 	 	all_the_things.png	 	custom	 	 
 ambulance	places	ambulance.png	unicode/1f691.png?v8	U+1F691	1f691.png	 	custom	 	 
 american_samoa	flags	 	unicode/1f1e6-1f1f8.png?v8	U+1F1E6 U+1F1F8	1f1e6-1f1f8.png	 	custom	 	 
 amphora	objects	 	unicode/1f3fa.png?v8	U+1F3FA	1f3fa.png	 	custom	 	 
@@ -296,7 +297,7 @@ chicken	nature	chicken.png	unicode/1f414.png?v8	U+1F414	1f414.png	 	custom
 child	people	 	unicode/1f9d2.png?v8	U+1F9D2	1f9d2.png	 	custom	 	 
 children_crossing	symbols	children_crossing.png	unicode/1f6b8.png?v8	U+1F6B8	1f6b8.png	 	custom	 	 
 chile	flags	 	unicode/1f1e8-1f1f1.png?v8	U+1F1E8 U+1F1F1	1f1e8-1f1f1.png	 	custom	 	 
-chipmunk	nature	squirrel.png	unicode/1f43f.png?v8	U+1F43F	1f43f.png	 	custom	 	 
+chipmunk	nature	 	unicode/1f43f.png?v8	U+1F43F	1f43f.png	 	custom	 	 
 chocolate_bar	food	chocolate_bar.png	unicode/1f36b.png?v8	U+1F36B	1f36b.png	 	custom	 	 
 chopsticks	objects	 	unicode/1f962.png?v8	U+1F962	1f962.png	 	custom	 	 
 christmas_island	flags	 	unicode/1f1e8-1f1fd.png?v8	U+1F1E8 U+1F1FD	1f1e8-1f1fd.png	 	custom	 	 
@@ -611,7 +612,7 @@ fire_engine	places	fire_engine.png	unicode/1f692.png?v8	U+1F692	1f692.png	 	cust
 fire_extinguisher	objects	 	unicode/1f9ef.png?v8	U+1F9EF	1f9ef.png	 	custom	 	 
 firecracker	objects	 	unicode/1f9e8.png?v8	U+1F9E8	1f9e8.png	 	custom	 	 
 firefighter	people	 	unicode/1f9d1-1f692.png?v8	U+1F9D1 U+1F692	1f9d1-1f692.png	 	custom	 	 
-fireworks	symbols	fireworks.png	unicode/1f386.png?v8	U+1F386	1f386.png	 	custom	 	 
+fireworks	objects	fireworks.png	unicode/1f386.png?v8	U+1F386	1f386.png	 	custom	 	 
 first_quarter_moon	nature	first_quarter_moon.png	unicode/1f313.png?v8	U+1F313	1f313.png	 	custom	 	 
 first_quarter_moon_with_face	nature	first_quarter_moon_with_face.png	unicode/1f31b.png?v8	U+1F31B	1f31b.png	 	custom	 	 
 fish	nature	fish.png	unicode/1f41f.png?v8	U+1F41F	1f41f.png	 	custom	 	 
@@ -678,7 +679,7 @@ game_die	objects	game_die.png	unicode/1f3b2.png?v8	U+1F3B2	1f3b2.png	 	custom
 garlic	food	 	unicode/1f9c4.png?v8	U+1F9C4	1f9c4.png	 	custom	 	 
 gb	flags	uk.png	unicode/1f1ec-1f1e7.png?v8	U+1F1EC U+1F1E7	1f1ec-1f1e7.png	 	custom	uk	 
 gear	objects	 	unicode/2699.png?v8	U+2699	2699.png	 	custom	 	 
-gem	symbols	gem.png	unicode/1f48e.png?v8	U+1F48E	1f48e.png	 	custom	 	 
+gem	objects	gem.png	unicode/1f48e.png?v8	U+1F48E	1f48e.png	 	custom	 	 
 gemini	symbols	gemini.png	unicode/264a.png?v8	U+264A	264a.png	 	custom	 	 
 genie	people	 	unicode/1f9de.png?v8	U+1F9DE	1f9de.png	 	custom	 	 
 genie_man	people	 	unicode/1f9de-2642.png?v8	U+1F9DE U+2642	1f9de-2642.png	 	custom	 	 
@@ -995,7 +996,7 @@ man_with_turban	people	man_with_turban.png	unicode/1f473-2642.png?v8	U+1F473 U+2
 man_with_veil	people	 	unicode/1f470-2642.png?v8	U+1F470 U+2642	1f470-2642.png	 	custom	 	 
 mandarin	food	tangerine.png	unicode/1f34a.png?v8	U+1F34A	1f34a.png	 	custom	orange,tangerine	 
 mango	food	 	unicode/1f96d.png?v8	U+1F96D	1f96d.png	 	custom	 	 
-mans_shoe	objects	shoe.png	unicode/1f45e.png?v8	U+1F45E	1f45e.png	 	custom	shoe	 
+mans_shoe	objects	mans_shoe.png	unicode/1f45e.png?v8	U+1F45E	1f45e.png	 	custom	shoe	 
 mantelpiece_clock	objects	 	unicode/1f570.png?v8	U+1F570	1f570.png	 	custom	 	 
 manual_wheelchair	objects	 	unicode/1f9bd.png?v8	U+1F9BD	1f9bd.png	 	custom	 	 
 maple_leaf	nature	maple_leaf.png	unicode/1f341.png?v8	U+1F341	1f341.png	 	custom	 	 
@@ -1066,7 +1067,7 @@ motorcycle	activities	 	unicode/1f3cd.png?v8	U+1F3CD	1f3cd.png	 	custom
 motorized_wheelchair	objects	 	unicode/1f9bc.png?v8	U+1F9BC	1f9bc.png	 	custom	 	 
 motorway	places	 	unicode/1f6e3.png?v8	U+1F6E3	1f6e3.png	 	custom	 	 
 mount_fuji	flags	mount_fuji.png	unicode/1f5fb.png?v8	U+1F5FB	1f5fb.png	 	custom	 	 
-mountain	places	 	unicode/26f0.png?v8	U+26F0	26f0.png	 	custom	 	 
+mountain	nature	 	unicode/26f0.png?v8	U+26F0	26f0.png	 	custom	 	 
 mountain_bicyclist	activities	mountain_bicyclist.png	unicode/1f6b5.png?v8	U+1F6B5	1f6b5.png	 	custom	 	 
 mountain_biking_man	people	 	unicode/1f6b5-2642.png?v8	U+1F6B5 U+2642	1f6b5-2642.png	 	custom	 	 
 mountain_biking_woman	people	 	unicode/1f6b5-2640.png?v8	U+1F6B5 U+2640	1f6b5-2640.png	 	custom	 	 
@@ -1235,11 +1236,14 @@ person_bald	people	 	unicode/1f9d1-1f9b2.png?v8	U+1F9D1 U+1F9B2	1f9d1-1f9b2.png	
 person_curly_hair	people	 	unicode/1f9d1-1f9b1.png?v8	U+1F9D1 U+1F9B1	1f9d1-1f9b1.png	 	custom	 	 
 person_feeding_baby	people	 	unicode/1f9d1-1f37c.png?v8	U+1F9D1 U+1F37C	1f9d1-1f37c.png	 	custom	 	 
 person_fencing	people	 	unicode/1f93a.png?v8	U+1F93A	1f93a.png	 	custom	 	 
+person_frowning	people	person_frowning.png	 	 	person_frowning.png	 	custom	 	 
 person_in_manual_wheelchair	objects	 	unicode/1f9d1-1f9bd.png?v8	U+1F9D1 U+1F9BD	1f9d1-1f9bd.png	 	custom	 	 
 person_in_motorized_wheelchair	people	 	unicode/1f9d1-1f9bc.png?v8	U+1F9D1 U+1F9BC	1f9d1-1f9bc.png	 	custom	 	 
 person_in_tuxedo	people	 	unicode/1f935.png?v8	U+1F935	1f935.png	 	custom	 	 
 person_red_hair	people	 	unicode/1f9d1-1f9b0.png?v8	U+1F9D1 U+1F9B0	1f9d1-1f9b0.png	 	custom	 	 
 person_white_hair	people	 	unicode/1f9d1-1f9b3.png?v8	U+1F9D1 U+1F9B3	1f9d1-1f9b3.png	 	custom	 	 
+person_with_blond_hair	people	person_with_blond_hair.png	 	 	person_with_blond_hair.png	 	custom	 	 
+person_with_pouting_face	people	person_with_pouting_face.png	 	 	person_with_pouting_face.png	 	custom	 	 
 person_with_probing_cane	people	 	unicode/1f9d1-1f9af.png?v8	U+1F9D1 U+1F9AF	1f9d1-1f9af.png	 	custom	 	 
 person_with_turban	people	 	unicode/1f473.png?v8	U+1F473	1f473.png	 	custom	 	 
 person_with_veil	people	 	unicode/1f470.png?v8	U+1F470	1f470.png	 	custom	 	 
@@ -1461,7 +1465,7 @@ ship	places	ship.png	unicode/1f6a2.png?v8	U+1F6A2	1f6a2.png	 	custom
 shipit	symbols	shipit.png	shipit.png?v8	 	shipit.png	 	custom	 	 
 shirt	objects	shirt.png	unicode/1f455.png?v8	U+1F455	1f455.png	 	custom	tshirt	 
 shit	objects	shit.png	unicode/1f4a9.png?v8	U+1F4A9	1f4a9.png	 	custom	hankey,poop	 
-shoe	objects	shoe.png	unicode/1f45e.png?v8	U+1F45E	1f45e.png	 	custom	mans_shoe	 
+shoe	objects	mans_shoe.png	unicode/1f45e.png?v8	U+1F45E	1f45e.png	 	custom	mans_shoe	 
 shopping	activities	 	unicode/1f6cd.png?v8	U+1F6CD	1f6cd.png	 	custom	 	 
 shopping_cart	objects	 	unicode/1f6d2.png?v8	U+1F6D2	1f6d2.png	 	custom	 	 
 shorts	objects	 	unicode/1fa73.png?v8	U+1FA73	1fa73.png	 	custom	 	 
@@ -1471,6 +1475,7 @@ shrug	people	 	unicode/1f937.png?v8	U+1F937	1f937.png	 	custom
 shushing_face	people	 	unicode/1f92b.png?v8	U+1F92B	1f92b.png	 	custom	 	 
 sierra_leone	flags	 	unicode/1f1f8-1f1f1.png?v8	U+1F1F8 U+1F1F1	1f1f8-1f1f1.png	 	custom	 	 
 signal_strength	symbols	signal_strength.png	unicode/1f4f6.png?v8	U+1F4F6	1f4f6.png	 	custom	 	 
+simple_smile	people	simple_smile.png	 	 	simple_smile.png	 	custom	 	 
 singapore	flags	 	unicode/1f1f8-1f1ec.png?v8	U+1F1F8 U+1F1EC	1f1f8-1f1ec.png	 	custom	 	 
 singer	people	 	unicode/1f9d1-1f3a4.png?v8	U+1F9D1 U+1F3A4	1f9d1-1f3a4.png	 	custom	 	 
 sint_maarten	flags	 	unicode/1f1f8-1f1fd.png?v8	U+1F1F8 U+1F1FD	1f1f8-1f1fd.png	 	custom	 	 
@@ -1546,6 +1551,7 @@ spiral_notepad	objects	 	unicode/1f5d2.png?v8	U+1F5D2	1f5d2.png	 	custom
 sponge	objects	 	unicode/1f9fd.png?v8	U+1F9FD	1f9fd.png	 	custom	 	 
 spoon	objects	 	unicode/1f944.png?v8	U+1F944	1f944.png	 	custom	 	 
 squid	nature	 	unicode/1f991.png?v8	U+1F991	1f991.png	 	custom	 	 
+squirrel	nature	squirrel.png	 	 	squirrel.png	 	custom	 	 
 sri_lanka	flags	 	unicode/1f1f1-1f1f0.png?v8	U+1F1F1 U+1F1F0	1f1f1-1f1f0.png	 	custom	 	 
 st_barthelemy	flags	 	unicode/1f1e7-1f1f1.png?v8	U+1F1E7 U+1F1F1	1f1e7-1f1f1.png	 	custom	 	 
 st_helena	flags	 	unicode/1f1f8-1f1ed.png?v8	U+1F1F8 U+1F1ED	1f1f8-1f1ed.png	 	custom	 	 
@@ -1645,7 +1651,8 @@ tent	places	tent.png	unicode/26fa.png?v8	U+26FA	26fa.png	 	custom
 test_tube	objects	 	unicode/1f9ea.png?v8	U+1F9EA	1f9ea.png	 	custom	 	 
 thailand	flags	 	unicode/1f1f9-1f1ed.png?v8	U+1F1F9 U+1F1ED	1f1f9-1f1ed.png	 	custom	 	 
 thermometer	objects	 	unicode/1f321.png?v8	U+1F321	1f321.png	 	custom	 	 
-thinking	people	thinking_face.png	unicode/1f914.png?v8	U+1F914	1f914.png	 	custom	 	 
+thinking	people	 	unicode/1f914.png?v8	U+1F914	1f914.png	 	custom	 	 
+thinking_face	people	thinking_face.png	 	 	thinking_face.png	 	custom	 	 
 thong_sandal	objects	 	unicode/1fa74.png?v8	U+1FA74	1fa74.png	 	custom	 	 
 thought_balloon	symbols	thought_balloon.png	unicode/1f4ad.png?v8	U+1F4AD	1f4ad.png	 	custom	 	 
 thread	objects	 	unicode/1f9f5.png?v8	U+1F9F5	1f9f5.png	 	custom	 	 

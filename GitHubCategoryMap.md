@@ -122,7 +122,7 @@
 :basketball_man:                        people
 :basketball_woman:                      people
 :bat:                                   nature
-:bath:                                  places
+:bath:                                  places!
 :bathtub:                               objects
 :battery:                               objects
 :beach_umbrella:                        objects
@@ -204,7 +204,7 @@
 :bowing_woman:                          people
 :bowl_with_spoon:                       objects
 :bowling:                               activities!
-:bowtie:                                objects
+:bowtie:                                objects!
 :boxing_glove:                          activities!
 :boy:                                   people
 :brain:                                 people
@@ -446,7 +446,7 @@
 :dango:                                 food!
 :dark_sunglasses:                       objects
 :dart:                                  activities!
-:dash:                                  symbols
+:dash:                                  symbols!
 :date:                                  objects
 :de:                                    flags!
 :deaf_man:                              people
@@ -478,7 +478,7 @@
 :dodo:                                  nature
 :dog2:                                  nature
 :dog:                                   nature
-:dollar:                                symbols
+:dollar:                                symbols!
 :dolls:                                 objects
 :dolphin:                               nature
 :dominica:                              flags!
@@ -605,12 +605,12 @@
 :film_strip:                            objects
 :finland:                               flags!
 :finnadie:                              people
-:fire:                                  objects
+:fire:                                  objects!
 :fire_engine:                           places
 :fire_extinguisher:                     objects
 :firecracker:                           objects
 :firefighter:                           people
-:fireworks:                             symbols
+:fireworks:                             objects
 :first_quarter_moon:                    nature
 :first_quarter_moon_with_face:          nature
 :fish:                                  nature!
@@ -677,7 +677,7 @@
 :garlic:                                food!
 :gb:                                    flags!
 :gear:                                  objects
-:gem:                                   symbols
+:gem:                                   objects
 :gemini:                                symbols
 :genie:                                 people
 :genie_man:                             people
@@ -753,7 +753,7 @@
 :health_worker:                         people
 :hear_no_evil:                          people
 :heard_mcdonald_islands:                flags!
-:heart:                                 symbols
+:heart:                                 symbols!
 :heart_decoration:                      symbols
 :heart_eyes:                            people
 :heart_eyes_cat:                        people
@@ -1065,7 +1065,7 @@
 :motorized_wheelchair:                  objects
 :motorway:                              places
 :mount_fuji:                            flags!
-:mountain:                              places
+:mountain:                              nature
 :mountain_bicyclist:                    activities!
 :mountain_biking_man:                   people
 :mountain_biking_woman:                 people
@@ -1084,7 +1084,7 @@
 :musical_keyboard:                      objects
 :musical_note:                          people
 :musical_score:                         objects
-:mute:                                  symbols
+:mute:                                  symbols!
 :mx_claus:                              objects
 :myanmar:                               flags!
 :nail_care:                             people
@@ -1562,7 +1562,7 @@
 :star_and_crescent:                     symbols
 :star_of_david:                         symbols
 :star_struck:                           people
-:stars:                                 symbols
+:stars:                                 symbols!
 :station:                               places
 :statue_of_liberty:                     places
 :steam_locomotive:                      places
@@ -1768,7 +1768,7 @@
 :wallis_futuna:                         flags!
 :waning_crescent_moon:                  nature
 :waning_gibbous_moon:                   nature
-:warning:                               symbols
+:warning:                               symbols!
 :wastebasket:                           objects
 :watch:                                 objects
 :water_buffalo:                         nature
@@ -1860,7 +1860,7 @@
 :yellow_heart:                          people
 :yellow_square:                         symbols
 :yemen:                                 flags!
-:yen:                                   symbols
+:yen:                                   symbols!
 :yin_yang:                              symbols
 :yo_yo:                                 objects
 :yum:                                   people
